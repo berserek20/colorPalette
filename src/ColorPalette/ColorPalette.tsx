@@ -6,23 +6,26 @@ export default function ColorPalette() {
   const [cname , setCname] = useState("");
   const range = useRef(["#800080","#800000","#fafafa","#ffddc9","#b0afff","#d40c0c","#132a36","#21465b","#377699","#ff975d","#310343","#6c776a","#b4c7b1","#c4b1c7","#82bbab","#067857","#780627","#c80a42","#50757b","#053b43","#74c365","#69ffbf","#de69ff","#ff69cd","#69f6ff"])
   const [colorRange, setColorRange] = useState(range.current);
-  const len : number = 6;
+  const len : number = 7;
 
-  useEffect(() => {
-    console.log(color);
-  }, [color, cname, colorRange]);
   //addcolor
   function addColor() {
-    if (colorRange.includes("#"+cname) || (cname.length!=6 && cname.length!=3)) {
-      alert("color already exist in palette or length is less than required");
+    let cName=cname;
+    if(cName.charAt(0)=='#')
+    cName= cName.slice(1);
+    if (colorRange.includes("#"+cName)  ) {
+      alert("color already exist in palette ");
     } 
+    else if((cName.length!=6 && cName.length!=3)) {
+        alert("Hexadecimal code length either could be 3 or 6");
+    }
     else {
-      if (!/^([0-9a-fA-F]{3}){1,2}$/.test(cname)) {
+      if (!/^([0-9a-fA-F]{3}){1,2}$/.test(cName)) {
         alert("Hexadecimal code is not correct.");
         return;
       }
       console.log(colorRange);
-      setColorRange((prev)=>([...prev, "#" + cname]));
+      setColorRange((prev)=>([...prev, "#" + cName]));
     }
     
   }
@@ -52,7 +55,7 @@ export default function ColorPalette() {
             <h1>Color Palette</h1>
       <div className="container1">
 
-            <label htmlFor="color hex code">Enter color hex code (without#)</label>
+            <label htmlFor="color hex code">Enter color hex code</label>
             <input
               className="color"
               placeholder="color hex code"
