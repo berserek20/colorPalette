@@ -1,0 +1,61 @@
+*{
+    margin:0px;
+    padding:0px;
+
+}
+
+.container1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: centre;
+}
+input{
+    height:40px;
+    width:200px;
+    padding: 5px 10px;
+}
+.grid{
+    width:50vw;
+    height: 50vh;
+    list-style-type: none;
+    background-color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+  
+}
+
+
+
+.box{
+    height: 70px;
+    width: 70px;
+    margin: 20px;
+    border: 4px solid;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: centre;
+}
+.box:hover{
+    cursor: pointer;
+}
+.container2{
+  
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+#display{
+    height: 50vh;
+    width:100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: centre;
+}
+
